@@ -1,0 +1,47 @@
+<div class="row">
+  <div class="col-lg-6 grid-margin stretch-card">
+    <div class="card">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-md-12 grid-margin">
+            <div class="d-flex justify-content-between align-items-center">
+              <div>
+                <h4 class="font-weight-bold mb-0">Sales by Seller (Doughnut Chart)</h4>
+              </div>
+            </div>
+          </div>
+        </div>
+        <canvas #employeeSellsCanvas class="canvas-db5">{{ employeeSellsChart }}</canvas>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6 grid-margin stretch-card">
+    <div class="card">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-md-12 grid-margin">
+            <div class="d-flex justify-content-between align-items-center">
+              <div>
+                <h4 class="font-weight-bold mb-0">Sales by Seller (Table Chart)</h4>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="table-responsive" style="overflow-y: scroll; max-height: 440px;">
+          <table class="table table-hover">
+            <tr>
+              <th scope="col">SN</th>
+              <th scope="col">Employee</th>
+              <th scope="col" style="text-align: right;">Sell Amount, €</th>
+            </tr>
+            <tr *ngFor="let sell of employeeSells; let i = index">
+              <td>{{ i + 1 }}</td>
+              <td>{{ sell.EmployeeName }}</td>
+              <td style="text-align: right;">{{ sell.SellAmount_Table }}</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

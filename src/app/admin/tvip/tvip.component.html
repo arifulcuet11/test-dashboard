@@ -1,0 +1,12 @@
+<form #form=ngForm (submit)="onSubmit(form)" autocomplete="off" class="tm-login-form">
+    <input type="hidden" name="id" #id=ngModel [(ngModel)]="ipService.formData.id">
+    <div class="form-group">
+        <label class="form-input-title-small-device">TV-IP Address</label>
+        <input name="ipaddress" #name=ngModel [(ngModel)]="ipService.formData.ipAddress"
+            class="form-control form-control-lg form-input-text-small-device" placeholder="TV-IP Address">
+    </div>
+    <div class="form-group">
+        <button type="submit"
+            class="btn btn-block btn-primary btn-lg text-uppercase form-button-text-small-device">Submit</button>
+    </div>
+</form>

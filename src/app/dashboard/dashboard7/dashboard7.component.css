@@ -1,0 +1,108 @@
+.db {
+    width: 1920px;
+    height: 1080px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.header {
+    width: 1690px;
+    height: 85px;
+    text-align: center;
+    color: #2b2b2b;
+    font-size: 40px;
+    font-weight: 900;
+    line-height: 48px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+
+.pagination {
+    margin: 30px 0 30px 0px;
+    height: 40px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.dot {
+    height: 20px;
+    width: 20px;
+    background: #fbe8d8;
+    border: 5px solid #f6d9d7;
+    border-radius: 50%;
+    opacity: .9;
+    margin-right: 10px;
+}
+
+.dot.active {
+    background: #f6d9d7;
+}
+
+.dot:last-child {
+    margin: 0px;
+}
+
+.container {
+    background-color: #fff;
+    width: 1825px;
+    height: 780px;
+}
+
+table {
+    width: 1740px;
+    height: auto;
+    margin: 35px auto;
+    border-collapse: collapse;
+}
+
+td, th {
+    padding-left: 15px;
+    text-align: left;
+}
+
+th {
+    height: 55px;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 18px;
+    text-transform: uppercase;
+    margin-right: -1px;
+}
+
+th:nth-child(2n-1) {
+    background-color: #316FFF;
+}
+
+th:nth-child(2n) {
+    background-color: #8EB0FF;
+}
+
+td {
+    height: auto;
+    color: #000000;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 24px;
+}
+
+td:nth-child(2n-1) {
+    background-color: #a8c2ff;
+}
+
+td:nth-child(2n) {
+    background-color: #c1d4ff;
+}
+
+tbody tr:nth-child(2n) td:nth-child(2n-1) {
+    background-color: #a8c2ff;
+}
+
+tbody tr:nth-child(2n) td:nth-child(2n) {
+    background-color: #c1d4ff;
+}

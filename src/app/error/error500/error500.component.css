@@ -1,0 +1,9 @@
+.error-number {
+    color: #73879C;   
+    font-size: 90px;
+    line-height: 90px;
+    margin: 20px 0
+}
+.error-text {
+    color: #2A3F54;
+}

@@ -1,0 +1,16 @@
+<div class="table-responsive" style="overflow-y: scroll; max-height: 400px;">
+<table class="table" style="width: 100%;">
+    <tbody>
+        <tr>
+            <th>Username</th>
+            <th>Email</th> 
+            <th class="text-secondary" style="text-align: right;">Action</th>           
+          </tr>
+        <tr *ngFor="let user of userService.userList">
+            <td><button (click)="populateForm(user)" class="btn btn-sm btn-outline-success btn-block" style="text-align:left;">{{user.userName}}</button></td>    
+            <td><button (click)="populateForm(user)" class="btn btn-sm btn-outline-success btn-block" style="text-align:left;">{{user.email}}</button></td>       
+            <td style="text-align: right;"><button (click)="onDelete(user.id)" class="btn btn-sm btn-outline-danger">X</button></td>
+        </tr>
+    </tbody>
+</table>
+</div>

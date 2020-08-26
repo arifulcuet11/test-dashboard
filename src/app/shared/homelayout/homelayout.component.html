@@ -1,0 +1,115 @@
+<div class="container-scroller">
+    <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+        <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
+          <a class="navbar-brand brand-logo mr-5" href="#">
+            <!-- <img src="../../assets/images/logo.svg" class="mr-2" alt="logo"/> -->
+            <h4 class="font-weight-bold mb-0 text-primary">Test Dashboard</h4>
+          </a>
+          <a class="navbar-brand brand-logo-mini" href="#">
+            <!-- <img src="../../assets/images/logo-mini.svg" alt="logo"/> -->
+            <h4 class="font-weight-bold mb-0 text-primary">TD</h4>
+          </a>
+        </div>
+        <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
+          <button *ngIf="(isLoggedIn | async)" class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
+            <span class="ti-view-list"></span>
+          </button>        
+          <ul class="navbar-nav navbar-nav-right">         
+            <li *ngIf="(isLoggedIn | async)" class="nav-item dropdown">
+              <a *ngIf="isAdmin" class="nav-link count-indicator dropdown-toggle" id="notificationDropdown" href="#" data-toggle="dropdown">
+                <i class="ti-user mx-0 text-primary"></i>&nbsp;
+                <span class="counts">Admin</span>
+              </a>            
+              <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="notificationDropdown">
+                 <a class="dropdown-item">
+                  <div class="item-thumbnail">
+                    <div class="item-icon bg-info">
+                      <i class="ti-user mx-0"></i>
+                    </div>
+                  </div>
+                  <div class="item-content">
+                    <a class="nav-link" routerLink="/users">
+                      <h6 class="font-weight-normal">User Registration</h6>  
+                    </a>               
+                  </div>
+                </a>
+                <a class="dropdown-item">
+                  <div class="item-thumbnail">
+                    <div class="item-icon bg-info">
+                      <i class="ti-desktop mx-0"></i>
+                    </div>
+                  </div>
+                  <div class="item-content">
+                    <a class="nav-link" routerLink="/tv-ips">
+                      <h6 class="font-weight-normal">TV-IP Registration</h6>  
+                    </a>               
+                  </div>
+                </a>
+              </div>
+            </li>
+            <li class="nav-item dropdown mr-1">               
+               <a *ngIf="(isLoggedIn | async)" class="nav-link logout-btn-style" (click)="userService.logout()">
+                <i class="ti-power-off mx-0 text-danger"></i>&nbsp;
+                <span class="menu-title">Logout</span>
+              </a>
+           </li>          
+          </ul>
+          <button *ngIf="(isLoggedIn | async)"class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
+            <span class="ti-view-list"></span>
+          </button>
+        </div>
+      </nav> 
+      <div class="container-fluid page-body-wrapper">  
+        <nav *ngIf="(isLoggedIn | async)" class="sidebar sidebar-offcanvas" id="sidebar">
+          <ul class="nav">
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/home" routerLinkActive="is-active-home">
+                <i class="ti-shield menu-icon"></i>
+                <span class="menu-title">Home</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic" routerLinkActive="is-active">
+                <i class="ti-palette menu-icon"></i>
+                <span class="menu-title">Dashboard</span>
+                <i class="menu-arrow"></i>
+              </a>
+              <div class="collapse" id="ui-basic">
+                <ul class="nav flex-column sub-menu">
+                  <li class="nav-item"><a class="nav-link" routerLink="/revenue" routerLinkActive="is-active">Revenues</a><li>          
+                  <li class="nav-item"><a class="nav-link" routerLink="/main" routerLinkActive="is-active">Main</a></li>          
+                  <li class="nav-item"><a class="nav-link" routerLink="/ongoing-project-value" routerLinkActive="is-active">Ongoing Project Value</a></li>          
+                    <li class="nav-item"><a class="nav-link" routerLink="/project-preparation" routerLinkActive="is-active">Project Preparation</a></li>  
+                     <li class="nav-item"><a class="nav-link" routerLink="/sales-by-month" routerLinkActive="is-active">Sales by Month</a></li> 
+                     <li class="nav-item"><a  class="nav-link" routerLink="/sales-by-seller" routerLinkActive="is-active">Sales by Seller</a></li> 
+                    <li class="nav-item"><a class="nav-link" routerLink="/planned-large-project" routerLinkActive="is-active">Planned Large Project</a></li>  
+                </ul>
+              </div>
+            </li>          
+            <li class="nav-item">
+              <a class="nav-link" data-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth" routerLinkActive="is-active">
+                <i class="ti-settings menu-icon"></i>
+                <span class="menu-title">Carousel</span>
+                <i class="menu-arrow"></i>
+              </a>
+              <div class="collapse" id="auth">
+                <ul class="nav flex-column sub-menu">
+                  <li class="nav-item"><a class="nav-link" routerLink="/carousel" routerLinkActive="is-active">Start Carousel</a></li>
+                  <li class="nav-item"><a class="nav-link" routerLink="/set-delay-time" routerLinkActive="is-active">Set Delay Time</a></li>                
+                </ul>
+              </div>
+            </li>          
+          </ul>
+        </nav>  
+        <div *ngIf="(isLoggedIn | async)" class="main-panel">
+            <div class="content-wrapper">
+             <router-outlet></router-outlet>
+            </div>            
+          </div>
+          <div *ngIf="!(isLoggedIn | async)" class="main-panel" style="width: 100%;">
+            <div class="content-wrapper">
+             <router-outlet></router-outlet>
+            </div>            
+          </div>
+      </div>
+</div>
